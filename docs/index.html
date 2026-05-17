@@ -20,7 +20,9 @@
         --shadow: rgba(0, 0, 0, 0.34);
       }
 
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
       body {
         margin: 0;
@@ -32,7 +34,11 @@
           linear-gradient(180deg, #0b121a 0%, #0f1721 42%, #121a25 100%);
       }
 
-      h1, h2, h3, p, ul {
+      h1,
+      h2,
+      h3,
+      p,
+      ul {
         margin: 0;
       }
 
@@ -58,6 +64,54 @@
         width: min(1160px, calc(100% - 32px));
         margin: 0 auto;
         padding: 24px 0 72px;
+      }
+
+      .lang-switcher {
+        position: fixed;
+        top: 18px;
+        right: 18px;
+        z-index: 30;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px;
+        border: 1px solid rgba(232, 229, 224, 0.1);
+        border-radius: 999px;
+        background: rgba(10, 15, 23, 0.72);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.26);
+      }
+
+      .lang-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #d7d0c3 0%, #8d95a8 100%);
+        box-shadow: 0 0 14px rgba(215, 208, 195, 0.35);
+      }
+
+      .lang-button {
+        border: 0;
+        padding: 9px 12px;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 13px;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+      }
+
+      .lang-button:hover {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .lang-button.is-active {
+        color: var(--text);
+        background: linear-gradient(180deg, rgba(141, 149, 168, 0.26), rgba(110, 118, 137, 0.2));
+        box-shadow: inset 0 0 0 1px rgba(232, 229, 224, 0.08);
       }
 
       .hero {
@@ -93,7 +147,6 @@
         color: var(--muted-2);
         font-size: 12px;
         letter-spacing: 0.12em;
-        text-transform: uppercase;
       }
 
       h1 {
@@ -138,7 +191,6 @@
         margin-bottom: 6px;
         font-size: 12px;
         letter-spacing: 0.08em;
-        text-transform: uppercase;
         color: var(--accent);
       }
 
@@ -232,7 +284,6 @@
         color: var(--muted);
         font-size: 14px;
         letter-spacing: 0.04em;
-        text-transform: uppercase;
       }
 
       .footer {
@@ -240,6 +291,7 @@
         padding: 0 4px;
         color: #8f98a6;
         font-size: 14px;
+        line-height: 1.7;
       }
 
       @media (max-width: 900px) {
@@ -255,7 +307,8 @@
           width: 100%;
         }
 
-        .grid, .meta {
+        .grid,
+        .meta {
           grid-template-columns: 1fr;
         }
 
@@ -263,41 +316,67 @@
           padding: 22px;
         }
       }
+
+      @media (max-width: 640px) {
+        .page {
+          width: min(100% - 20px, 1160px);
+          padding-top: 78px;
+        }
+
+        .lang-switcher {
+          top: 12px;
+          right: 10px;
+          left: 10px;
+          justify-content: center;
+        }
+
+        .lang-button {
+          flex: 1 1 auto;
+          text-align: center;
+        }
+      }
     </style>
   </head>
   <body>
+    <div class="lang-switcher" aria-label="Language switcher">
+      <span class="lang-dot" aria-hidden="true"></span>
+      <button class="lang-button" data-lang="en" type="button">EN</button>
+      <button class="lang-button" data-lang="ja" type="button">日本語</button>
+      <button class="lang-button" data-lang="zh" type="button">中文</button>
+    </div>
+
     <div class="page">
       <section class="hero">
         <div class="hero-content">
-          <div class="eyebrow">Mayuri-Amadeus-Sing</div>
-          <h1>Some voices remain<br />only as light on water.</h1>
-          <p class="hero-lead">
+          <div class="eyebrow" data-i18n="eyebrow">Mayuri-Amadeus-Sing</div>
+          <h1 data-i18n-html="heroTitle">Some voices remain<br />only as light on water.</h1>
+          <p class="hero-lead" data-i18n-html="heroLead">
             Mayuri-Amadeus-Sing is a character-focused singing voice conversion framework built on
             <code>RVC + Applio</code>, shaped around the idea that a remembered voice is more than
             timbre alone. It is timing, air, distance, and the emotion that remains after the note
             has faded.
           </p>
-          <p class="hero-note">
-            This release preserves the workflow, the demo model, and one complete public example based
-            on <code>シリウスの心臓</code>. The aim is not to freeze a single cover, but to offer a
-            reproducible path for training, evaluating, and refining character singing systems.
+          <p class="hero-note" data-i18n-html="heroNote">
+            This release preserves the workflow, the demo model, and one complete public example
+            based on <code>シリウスの心臓</code>. The aim is not to freeze a single cover, but to offer
+            a reproducible path for training, evaluating, and refining character singing systems.
           </p>
           <div class="meta">
             <div class="chip">
-              <strong>Dataset</strong>
+              <strong data-i18n="datasetLabel">Dataset</strong>
               <a href="https://huggingface.co/datasets/SteinsGateSg/mayuri-voice-dataset">SteinsGateSg/mayuri-voice-dataset</a>
             </div>
             <div class="chip">
-              <strong>Demo Model</strong>
+              <strong data-i18n="demoModelLabel">Demo Model</strong>
               <code>mayuri_rvc_v1_200e_55200s.pth</code>
             </div>
             <div class="chip">
-              <strong>Backend</strong>
-              <code>Applio 3.5.1</code> with the <code>RVC</code> family workflow
+              <strong data-i18n="backendLabel">Backend</strong>
+              <span data-i18n-html="backendText"><code>Applio 3.5.1</code> with the <code>RVC</code> family workflow</span>
             </div>
             <div class="chip">
-              <strong>Public Example</strong>
-              Full vocal and full mix demos from the <code>Sirius no Shinzou</code> case
+              <strong data-i18n="publicExampleLabel">Public Example</strong>
+              <span data-i18n-html="publicExampleText">Full vocal and full mix demos from the <code>Sirius no Shinzou</code> case</span>
             </div>
           </div>
         </div>
@@ -305,42 +384,46 @@
 
       <section class="section">
         <div class="quote">
-          <p>
+          <p data-i18n="quoteText">
             A character voice is not remembered because it is loud. It is remembered because it
             carries a fragile world within it, and leaves that world behind when the song is over.
           </p>
-          <div class="muted-line">Framework release for character singing voice conversion</div>
+          <div class="muted-line" data-i18n="quoteLine">Framework release for character singing voice conversion</div>
         </div>
       </section>
 
       <section class="grid section">
         <div class="panel">
-          <h2>Listen</h2>
+          <h2 data-i18n="listenHeading">Listen</h2>
           <div class="audio-card">
-            <h3>Converted Vocal</h3>
-            <p>Full-length isolated vocal rendered with the kept release checkpoint and index.</p>
+            <h3 data-i18n="convertedVocalHeading">Converted Vocal</h3>
+            <p data-i18n="convertedVocalText">
+              Full-length isolated vocal rendered with the kept release checkpoint and index.
+            </p>
             <audio controls preload="none" src="assets/audio/sirius_mayuri_vocal.mp3"></audio>
           </div>
           <div class="audio-card">
-            <h3>Aligned Full Mix</h3>
-            <p>Reference mix pairing the converted vocal with the aligned instrumental.</p>
+            <h3 data-i18n="fullMixHeading">Aligned Full Mix</h3>
+            <p data-i18n="fullMixText">
+              Reference mix pairing the converted vocal with the aligned instrumental.
+            </p>
             <audio controls preload="none" src="assets/audio/sirius_mayuri_full.mp3"></audio>
           </div>
         </div>
 
         <div class="panel">
-          <h2>Start</h2>
+          <h2 data-i18n="startHeading">Start</h2>
           <ul class="list">
             <li><code>bash scripts/bootstrap_env.sh</code></li>
             <li><code>bash scripts/install_backend_deps.sh</code></li>
             <li><code>python scripts/link_existing_dataset.py --raw-source /path/to/wav</code></li>
             <li><code>bash scripts/run_applio.sh</code></li>
           </ul>
-          <p style="margin-top: 18px;">
+          <p style="margin-top: 18px;" data-i18n-html="startNoteOne">
             The first UI launch or first CLI inference downloads Applio runtime prerequisites such as
             <code>rmvpe.pt</code> and <code>contentvec</code>.
           </p>
-          <p style="margin-top: 18px;">
+          <p style="margin-top: 18px;" data-i18n-html="startNoteTwo">
             <code>Music/</code> is kept as a placeholder. Local experiments should place a guide
             vocal and instrumental under <code>inputs/</code>.
           </p>
@@ -349,40 +432,46 @@
 
       <section class="grid section">
         <div class="panel">
-          <h2>Included</h2>
+          <h2 data-i18n="includedHeading">Included</h2>
           <ul class="list">
-            <li>Applio 3.5.1 backend source prepared for local setup</li>
-            <li>One kept Mayuri demo checkpoint and matching index</li>
-            <li>Scripts for dataset linking, UI launch, runtime preparation, and inference sweeps</li>
-            <li>Publishable demo audio for vocal-only and full-mix listening</li>
+            <li data-i18n="includedOne">Applio 3.5.1 backend source prepared for local setup</li>
+            <li data-i18n="includedTwo">One kept Mayuri demo checkpoint and matching index</li>
+            <li data-i18n="includedThree">
+              Scripts for dataset linking, UI launch, runtime preparation, and inference sweeps
+            </li>
+            <li data-i18n="includedFour">Publishable demo audio for vocal-only and full-mix listening</li>
           </ul>
         </div>
 
         <div class="panel">
-          <h2>Intentionally Omitted</h2>
+          <h2 data-i18n="omittedHeading">Intentionally Omitted</h2>
           <ul class="list">
-            <li>Raw training WAV archives</li>
-            <li>Original song stems and local music assets</li>
-            <li>Training caches, transient checkpoints, and downloaded runtime weights</li>
-            <li>Machine-specific paths and workstation-only state</li>
+            <li data-i18n="omittedOne">Raw training WAV archives</li>
+            <li data-i18n="omittedTwo">Original song stems and local music assets</li>
+            <li data-i18n="omittedThree">
+              Training caches, transient checkpoints, and downloaded runtime weights
+            </li>
+            <li data-i18n="omittedFour">Machine-specific paths and workstation-only state</li>
           </ul>
         </div>
       </section>
 
       <section class="grid section">
         <div class="panel">
-          <h2>Repository Layout</h2>
+          <h2 data-i18n="layoutHeading">Repository Layout</h2>
           <ul class="list">
-            <li><code>models/</code>: kept release checkpoint and index</li>
-            <li><code>third_party/Applio/</code>: backend source tree without bundled runtime downloads</li>
-            <li><code>docs/assets/</code>: project page media assets</li>
-            <li><code>data/source/</code>: optional local dataset links only</li>
+            <li data-i18n-html="layoutOne"><code>models/</code>: kept release checkpoint and index</li>
+            <li data-i18n-html="layoutTwo">
+              <code>third_party/Applio/</code>: backend source tree without bundled runtime downloads
+            </li>
+            <li data-i18n-html="layoutThree"><code>docs/assets/</code>: project page media assets</li>
+            <li data-i18n-html="layoutFour"><code>data/source/</code>: optional local dataset links only</li>
           </ul>
         </div>
 
         <div class="panel">
-          <h2>Release Intent</h2>
-          <p>
+          <h2 data-i18n="intentHeading">Release Intent</h2>
+          <p data-i18n-html="intentText">
             This repository is designed as a practical training and evaluation scaffold for
             character singing voice conversion. The <code>シリウスの心臓</code> example demonstrates one
             complete path through the framework, while the structure remains open for other songs,
@@ -391,10 +480,217 @@
         </div>
       </section>
 
-      <div class="footer">
+      <div class="footer" data-i18n="footerText">
         Mayuri-Amadeus-Sing keeps the framework public and lightweight while leaving the dataset,
         model, and demo path concrete enough to reproduce.
       </div>
     </div>
+
+    <script>
+      const I18N = {
+        en: {
+          pageTitle: "Mayuri-Amadeus-Sing",
+          eyebrow: "Mayuri-Amadeus-Sing",
+          heroTitle: "Some voices remain<br />only as light on water.",
+          heroLead:
+            "Mayuri-Amadeus-Sing is a character-focused singing voice conversion framework built on <code>RVC + Applio</code>, shaped around the idea that a remembered voice is more than timbre alone. It is timing, air, distance, and the emotion that remains after the note has faded.",
+          heroNote:
+            "This release preserves the workflow, the demo model, and one complete public example based on <code>シリウスの心臓</code>. The aim is not to freeze a single cover, but to offer a reproducible path for training, evaluating, and refining character singing systems.",
+          datasetLabel: "Dataset",
+          demoModelLabel: "Demo Model",
+          backendLabel: "Backend",
+          backendText: "<code>Applio 3.5.1</code> with the <code>RVC</code> family workflow",
+          publicExampleLabel: "Public Example",
+          publicExampleText: "Full vocal and full mix demos from the <code>Sirius no Shinzou</code> case",
+          quoteText:
+            "A character voice is not remembered because it is loud. It is remembered because it carries a fragile world within it, and leaves that world behind when the song is over.",
+          quoteLine: "Framework release for character singing voice conversion",
+          listenHeading: "Listen",
+          convertedVocalHeading: "Converted Vocal",
+          convertedVocalText:
+            "Full-length isolated vocal rendered with the kept release checkpoint and index.",
+          fullMixHeading: "Aligned Full Mix",
+          fullMixText: "Reference mix pairing the converted vocal with the aligned instrumental.",
+          startHeading: "Start",
+          startNoteOne:
+            "The first UI launch or first CLI inference downloads Applio runtime prerequisites such as <code>rmvpe.pt</code> and <code>contentvec</code>.",
+          startNoteTwo:
+            "<code>Music/</code> is kept as a placeholder. Local experiments should place a guide vocal and instrumental under <code>inputs/</code>.",
+          includedHeading: "Included",
+          includedOne: "Applio 3.5.1 backend source prepared for local setup",
+          includedTwo: "One kept Mayuri demo checkpoint and matching index",
+          includedThree: "Scripts for dataset linking, UI launch, runtime preparation, and inference sweeps",
+          includedFour: "Publishable demo audio for vocal-only and full-mix listening",
+          omittedHeading: "Intentionally Omitted",
+          omittedOne: "Raw training WAV archives",
+          omittedTwo: "Original song stems and local music assets",
+          omittedThree: "Training caches, transient checkpoints, and downloaded runtime weights",
+          omittedFour: "Machine-specific paths and workstation-only state",
+          layoutHeading: "Repository Layout",
+          layoutOne: "<code>models/</code>: kept release checkpoint and index",
+          layoutTwo: "<code>third_party/Applio/</code>: backend source tree without bundled runtime downloads",
+          layoutThree: "<code>docs/assets/</code>: project page media assets",
+          layoutFour: "<code>data/source/</code>: optional local dataset links only",
+          intentHeading: "Release Intent",
+          intentText:
+            "This repository is designed as a practical training and evaluation scaffold for character singing voice conversion. The <code>シリウスの心臓</code> example demonstrates one complete path through the framework, while the structure remains open for other songs, other guide vocals, and further model iterations.",
+          footerText:
+            "Mayuri-Amadeus-Sing keeps the framework public and lightweight while leaving the dataset, model, and demo path concrete enough to reproduce."
+        },
+        ja: {
+          pageTitle: "Mayuri-Amadeus-Sing",
+          eyebrow: "Mayuri-Amadeus-Sing",
+          heroTitle: "残る声もある。<br />水面の光のように。",
+          heroLead:
+            "Mayuri-Amadeus-Sing は、<code>RVC + Applio</code> を基盤にしたキャラクター特化の歌声変換フレームワークです。記憶に残る声は音色だけでは成立しません。タイミング、息遣い、距離感、そして音が消えたあとに残る感情まで含めて、声になります。",
+          heroNote:
+            "本リリースには、ワークフロー、デモモデル、そして <code>シリウスの心臓</code> を用いた完全な公開例が含まれます。ひとつのカバーを固定化することではなく、キャラクター歌声システムを学習・評価・改善するための再現可能な道筋を残すことが目的です。",
+          datasetLabel: "データセット",
+          demoModelLabel: "デモモデル",
+          backendLabel: "バックエンド",
+          backendText: "<code>Applio 3.5.1</code> を用いた <code>RVC</code> 系ワークフロー",
+          publicExampleLabel: "公開例",
+          publicExampleText: "<code>シリウスの心臓</code> 事例のフルボーカルとフルミックスのデモ",
+          quoteText:
+            "キャラクターの声が記憶に残るのは、ただ大きく響くからではない。その声の内側に壊れやすい世界があり、歌い終えたあとにその余韻だけを残していくからだ。",
+          quoteLine: "キャラクター歌声変換のためのフレームワークリリース",
+          listenHeading: "試聴",
+          convertedVocalHeading: "変換ボーカル",
+          convertedVocalText: "保持したリリース用チェックポイントと index で生成したフル尺の分離ボーカルです。",
+          fullMixHeading: "整列済みフルミックス",
+          fullMixText: "変換ボーカルと位置合わせ済み伴奏を組み合わせた参照ミックスです。",
+          startHeading: "セットアップ",
+          startNoteOne:
+            "初回の UI 起動または初回の CLI 推論では、<code>rmvpe.pt</code> や <code>contentvec</code> などの Applio 実行用前提モデルが自動取得されます。",
+          startNoteTwo:
+            "<code>Music/</code> はプレースホルダーとして保持されています。ローカル実験では、ガイドボーカルと伴奏を <code>inputs/</code> 配下に配置してください。",
+          includedHeading: "同梱内容",
+          includedOne: "ローカルセットアップ向けに整理した Applio 3.5.1 バックエンドソース",
+          includedTwo: "保持した Mayuri デモチェックポイント 1 本と対応 index",
+          includedThree: "データセット接続、UI 起動、runtime 準備、推論 sweep 用スクリプト",
+          includedFour: "ボーカル単体とフルミックスの公開用デモ音声",
+          omittedHeading: "意図的に除外したもの",
+          omittedOne: "生の学習用 WAV アーカイブ",
+          omittedTwo: "元の楽曲 stem とローカル音楽アセット",
+          omittedThree: "学習キャッシュ、一時チェックポイント、ダウンロード済み runtime 重み",
+          omittedFour: "マシン固有のパスや作業環境依存の状態",
+          layoutHeading: "リポジトリ構成",
+          layoutOne: "<code>models/</code>: 保持したリリース用チェックポイントと index",
+          layoutTwo: "<code>third_party/Applio/</code>: runtime ダウンロードを含まないバックエンドソースツリー",
+          layoutThree: "<code>docs/assets/</code>: プロジェクトページ用メディアアセット",
+          layoutFour: "<code>data/source/</code>: 任意のローカルデータセットリンクのみ",
+          intentHeading: "リリースの意図",
+          intentText:
+            "このリポジトリは、キャラクター歌声変換の学習と評価のための実践的な足場として設計されています。<code>シリウスの心臓</code> の例はフレームワークを通るひとつの完全な経路を示しつつ、構造自体は他の楽曲、他のガイドボーカル、さらなるモデル反復にも開かれています。",
+          footerText:
+            "Mayuri-Amadeus-Sing は、フレームワークを公開かつ軽量に保ちながら、データセット、モデル、デモ経路を再現可能なだけの具体性で残します。"
+        },
+        zh: {
+          pageTitle: "Mayuri-Amadeus-Sing",
+          eyebrow: "Mayuri-Amadeus-Sing",
+          heroTitle: "有些声音会留下。<br />像停在水面上的光。",
+          heroLead:
+            "Mayuri-Amadeus-Sing 是一个面向角色歌声转换的框架，基于 <code>RVC + Applio</code> 构建。真正让人记住的声音，不只是音色本身，还包括时值、气息、距离感，以及音符消失之后仍然残留的情绪。",
+          heroNote:
+            "这一版发布保留了完整工作流、演示模型，以及一个基于 <code>シリウスの心臓</code> 的公开完整示例。它的目的不是固化某一首翻唱，而是提供一条可复现的路径，用于训练、评估和迭代角色歌声系统。",
+          datasetLabel: "数据集",
+          demoModelLabel: "演示模型",
+          backendLabel: "后端",
+          backendText: "基于 <code>Applio 3.5.1</code> 的 <code>RVC</code> 系工作流",
+          publicExampleLabel: "公开示例",
+          publicExampleText: "<code>シリウスの心臓</code> 案例的完整人声与完整混音试听",
+          quoteText:
+            "一个角色的声音之所以会被记住，并不是因为它足够响亮，而是因为它内部藏着一个脆弱的世界，并在歌声结束之后把那个世界的余温留了下来。",
+          quoteLine: "面向角色歌声转换的框架发布版",
+          listenHeading: "试听",
+          convertedVocalHeading: "转换人声",
+          convertedVocalText: "基于保留的发布检查点与 index 渲染出的完整时长分离人声。",
+          fullMixHeading: "对齐完整版混音",
+          fullMixText: "将转换后人声与已对齐伴奏组合得到的参考混音版本。",
+          startHeading: "开始使用",
+          startNoteOne:
+            "首次启动 UI 或首次使用 CLI 推理时，会自动下载 Applio 运行所需的前置模型，例如 <code>rmvpe.pt</code> 与 <code>contentvec</code>。",
+          startNoteTwo:
+            "<code>Music/</code> 目录保留为占位符。进行本地实验时，请将 guide vocal 与伴奏放在 <code>inputs/</code> 下。",
+          includedHeading: "包含内容",
+          includedOne: "已整理好的 Applio 3.5.1 后端源码，可直接用于本地部署",
+          includedTwo: "保留的一版 Mayuri 演示 checkpoint 及对应 index",
+          includedThree: "用于数据集链接、UI 启动、runtime 准备和推理 sweep 的脚本",
+          includedFour: "可公开展示的人声版与完整混音版演示音频",
+          omittedHeading: "有意省略",
+          omittedOne: "原始训练 WAV 归档",
+          omittedTwo: "原始歌曲 stem 与本地音乐资产",
+          omittedThree: "训练缓存、临时 checkpoint 与已下载 runtime 权重",
+          omittedFour: "机器相关路径与仅适用于当前工作站的状态",
+          layoutHeading: "仓库结构",
+          layoutOne: "<code>models/</code>: 保留的发布 checkpoint 与 index",
+          layoutTwo: "<code>third_party/Applio/</code>: 不包含 runtime 下载内容的后端源码树",
+          layoutThree: "<code>docs/assets/</code>: 项目页媒体资源",
+          layoutFour: "<code>data/source/</code>: 仅用于可选的本地数据集链接",
+          intentHeading: "发布目的",
+          intentText:
+            "这个仓库被设计为一个面向角色歌声转换的实用训练与评估骨架。<code>シリウスの心臓</code> 示例展示了穿过这套框架的一条完整路径，而整体结构仍然对其他歌曲、其他 guide vocal 以及后续模型迭代保持开放。",
+          footerText:
+            "Mayuri-Amadeus-Sing 让框架保持公开和轻量，同时也保留了足够具体的数据集、模型与演示路径，以便复现。"
+        }
+      };
+
+      const LANG_MAP = {
+        en: "en",
+        ja: "ja",
+        zh: "zh-CN"
+      };
+
+      function detectLanguage() {
+        const stored = localStorage.getItem("mayuri-lang");
+        if (stored && I18N[stored]) {
+          return stored;
+        }
+        const browser = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+        if (browser.startsWith("ja")) {
+          return "ja";
+        }
+        if (browser.startsWith("zh")) {
+          return "zh";
+        }
+        return "en";
+      }
+
+      function applyLanguage(lang) {
+        const dict = I18N[lang] || I18N.en;
+        document.documentElement.lang = LANG_MAP[lang] || "en";
+        document.title = dict.pageTitle;
+
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          if (dict[key]) {
+            node.textContent = dict[key];
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-html]").forEach((node) => {
+          const key = node.getAttribute("data-i18n-html");
+          if (dict[key]) {
+            node.innerHTML = dict[key];
+          }
+        });
+
+        document.querySelectorAll(".lang-button").forEach((button) => {
+          const active = button.dataset.lang === lang;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+
+        localStorage.setItem("mayuri-lang", lang);
+      }
+
+      const initialLanguage = detectLanguage();
+      window.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".lang-button").forEach((button) => {
+          button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+        });
+        applyLanguage(initialLanguage);
+      });
+    </script>
   </body>
 </html>

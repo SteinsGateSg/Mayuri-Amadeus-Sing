@@ -22,6 +22,10 @@
 
 `Mayuri-Amadeus-Sing` is a focused singing voice conversion workspace for building Shiina Mayuri AI covers.
 
+> EN: A character-focused singing voice conversion framework and release-ready demo for Mayuri-style AI covers.  
+> 日本語: 椎名まゆりらしい歌声変換を目指す、キャラクター特化の歌声変換フレームワークです。  
+> 中文: 这是一个面向真由理风格 AI 翻唱的角色歌声转换框架与发布版演示仓库。
+
 The repository is organized as a reusable training/inference framework with one concrete example:
 
 - target character: `Shiina Mayuri`
@@ -59,6 +63,12 @@ Dataset download:
 Project page:
 
 - [Moonlit Showcase](https://steinsgatesg.github.io/Mayuri-Amadeus-Sing/)
+
+Language support:
+
+- EN: The project page includes a floating language switcher for English, Japanese, and Chinese.
+- 日本語: プロジェクトページには英語・日本語・中国語を切り替えるフローティング言語スイッチャーがあります。
+- 中文: 项目页顶部提供英文、日文、中文三语浮动切换器。
 
 Direct demo files:
 
