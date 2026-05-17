@@ -1,0 +1,43 @@
+project:
+  name: mayuri-amadeus-sing
+  target_character: shiina_mayuri
+  goal: public_training_framework_with_demo_case
+
+backend:
+  family: rvc
+  preferred_frontend: applio-3.5.1
+  optional_scripted_backend: rvc-cli
+  rejected_for_mvp:
+    - so-vits-svc
+    - so-vits-svc-fork
+
+paths:
+  hf_dataset: https://huggingface.co/datasets/SteinsGateSg/mayuri-voice-dataset
+  local_raw_wav_source: data/source/mayuri_speech_16k
+  applio_dataset_dir: third_party/Applio/assets/datasets/mayuri_rvc
+  demo_model_dir: models/mayuri_rvc_v1
+  local_dataset_link: data/source/mayuri_speech_16k
+  guide_vocals_dir: inputs/guide_vocals
+  instrumentals_dir: inputs/instrumentals
+  music_placeholder_dir: Music
+  outputs_dir: outputs
+  runs_dir: runs
+  third_party_dir: third_party
+
+experiment:
+  clip_id: sirius_example
+  language: ja
+  target_duration_sec: 15-30
+  pass1_training_sample_rate: 32000
+  pass1_pitch_extractor: rmvpe
+  evaluation_focus:
+    - timbre_identity
+    - melody_preservation
+    - consonant_clarity
+    - artifact_level
+
+risks:
+  - speech_only_dataset
+  - narrow_band_16k_source
+  - weak_high_pitch_identity
+  - unstable_sustains_and_vibrato

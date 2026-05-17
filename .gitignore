@@ -1,0 +1,31 @@
+# local envs
+.venv/
+
+# local dataset links
+data/source/mayuri_speech_16k
+data/source/mayuri_refs
+
+# runtime artifacts
+outputs/*
+!outputs/.gitkeep
+runs/*
+!runs/.gitkeep
+
+# music sources are intentionally not distributed
+Music/*
+!Music/README.md
+
+# Applio runtime state and downloaded prerequisites
+third_party/Applio/logs/*
+!third_party/Applio/logs/.gitkeep
+third_party/Applio/assets/audios/*
+!third_party/Applio/assets/audios/.gitkeep
+third_party/Applio/assets/datasets/*
+!third_party/Applio/assets/datasets/.gitkeep
+third_party/Applio/rvc/models/*
+!third_party/Applio/rvc/models/.gitkeep
+third_party/Applio/**/__pycache__/
+
+# OS/editor
+.DS_Store
+Thumbs.db
