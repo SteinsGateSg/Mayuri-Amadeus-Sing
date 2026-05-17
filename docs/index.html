@@ -171,6 +171,55 @@
         max-width: 48ch;
       }
 
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 2px;
+      }
+
+      .action-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(232, 229, 224, 0.1);
+        background: rgba(10, 15, 23, 0.48);
+        color: var(--text);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+        backdrop-filter: blur(10px);
+        transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      }
+
+      .action-link:hover {
+        text-decoration: none;
+        transform: translateY(-1px);
+        background: rgba(18, 25, 36, 0.7);
+        border-color: rgba(232, 229, 224, 0.18);
+      }
+
+      .action-icon {
+        width: 18px;
+        height: 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+      }
+
+      .action-icon svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+      }
+
+      .action-link-hf .action-icon {
+        width: 22px;
+        font-size: 17px;
+        line-height: 1;
+      }
+
       .meta {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -361,10 +410,24 @@
             based on <code>シリウスの心臓</code>. The aim is not to freeze a single cover, but to offer
             a reproducible path for training, evaluating, and refining character singing systems.
           </p>
+          <div class="hero-actions">
+            <a class="action-link" href="https://github.com/SteinsGateSg/Mayuri-Amadeus-Sing" target="_blank" rel="noreferrer">
+              <span class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.52 7.52 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path>
+                </svg>
+              </span>
+              <span data-i18n="githubEntry">GitHub Repository</span>
+            </a>
+            <a class="action-link action-link-hf" href="https://huggingface.co/datasets/SteinsGateSg/mayuri-voice-dataset" target="_blank" rel="noreferrer">
+              <span class="action-icon" aria-hidden="true">🤗</span>
+              <span data-i18n="hfEntry">Mayuri Voice Dataset</span>
+            </a>
+          </div>
           <div class="meta">
             <div class="chip">
               <strong data-i18n="datasetLabel">Dataset</strong>
-              <a href="https://huggingface.co/datasets/SteinsGateSg/mayuri-voice-dataset">SteinsGateSg/mayuri-voice-dataset</a>
+              <span data-i18n="datasetValue">SteinsGateSg · mayuri-voice-dataset</span>
             </div>
             <div class="chip">
               <strong data-i18n="demoModelLabel">Demo Model</strong>
@@ -497,11 +560,14 @@
           heroNote:
             "This release preserves the workflow, the demo model, and one complete public example based on <code>シリウスの心臓</code>. The aim is not to freeze a single cover, but to offer a reproducible path for training, evaluating, and refining character singing systems.",
           datasetLabel: "Dataset",
+          datasetValue: "SteinsGateSg · mayuri-voice-dataset",
           demoModelLabel: "Demo Model",
           backendLabel: "Backend",
           backendText: "<code>Applio 3.5.1</code> with the <code>RVC</code> family workflow",
           publicExampleLabel: "Public Example",
           publicExampleText: "Full vocal and full mix demos from the <code>Sirius no Shinzou</code> case",
+          githubEntry: "GitHub Repository",
+          hfEntry: "Mayuri Voice Dataset",
           quoteText:
             "A character voice is not remembered because it is loud. It is remembered because it carries a fragile world within it, and leaves that world behind when the song is over.",
           quoteLine: "Framework release for character singing voice conversion",
@@ -546,11 +612,14 @@
           heroNote:
             "本リリースには、ワークフロー、デモモデル、そして <code>シリウスの心臓</code> を用いた完全な公開例が含まれます。ひとつのカバーを固定化することではなく、キャラクター歌声システムを学習・評価・改善するための再現可能な道筋を残すことが目的です。",
           datasetLabel: "データセット",
+          datasetValue: "SteinsGateSg ・ mayuri-voice-dataset",
           demoModelLabel: "デモモデル",
           backendLabel: "バックエンド",
           backendText: "<code>Applio 3.5.1</code> を用いた <code>RVC</code> 系ワークフロー",
           publicExampleLabel: "公開例",
           publicExampleText: "<code>シリウスの心臓</code> 事例のフルボーカルとフルミックスのデモ",
+          githubEntry: "GitHub リポジトリ",
+          hfEntry: "Mayuri 音声データセット",
           quoteText:
             "キャラクターの声が記憶に残るのは、ただ大きく響くからではない。その声の内側に壊れやすい世界があり、歌い終えたあとにその余韻だけを残していくからだ。",
           quoteLine: "キャラクター歌声変換のためのフレームワークリリース",
@@ -594,11 +663,14 @@
           heroNote:
             "这一版发布保留了完整工作流、演示模型，以及一个基于 <code>シリウスの心臓</code> 的公开完整示例。它的目的不是固化某一首翻唱，而是提供一条可复现的路径，用于训练、评估和迭代角色歌声系统。",
           datasetLabel: "数据集",
+          datasetValue: "SteinsGateSg · mayuri-voice-dataset",
           demoModelLabel: "演示模型",
           backendLabel: "后端",
           backendText: "基于 <code>Applio 3.5.1</code> 的 <code>RVC</code> 系工作流",
           publicExampleLabel: "公开示例",
           publicExampleText: "<code>シリウスの心臓</code> 案例的完整人声与完整混音试听",
+          githubEntry: "GitHub 仓库",
+          hfEntry: "真由理语音数据集",
           quoteText:
             "一个角色的声音之所以会被记住，并不是因为它足够响亮，而是因为它内部藏着一个脆弱的世界，并在歌声结束之后把那个世界的余温留了下来。",
           quoteLine: "面向角色歌声转换的框架发布版",
