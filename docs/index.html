@@ -406,9 +406,10 @@
             has faded.
           </p>
           <p class="hero-note" data-i18n-html="heroNote">
-            This release preserves the workflow, the demo model, and one complete public example
-            based on <code>シリウスの心臓</code>. The aim is not to freeze a single cover, but to offer
-            a reproducible path for training, evaluating, and refining character singing systems.
+            This release preserves the workflow, the demo model, and two public examples:
+            <code>シリウスの心臓</code> and <code>我很想爱他</code>. One looks toward distant starlight;
+            the other stays close to the ache of wanting to love someone. Together they offer a
+            reproducible path for training, evaluating, and refining character singing systems.
           </p>
           <div class="hero-actions">
             <a class="action-link" href="https://github.com/SteinsGateSg/Mayuri-Amadeus-Sing" target="_blank" rel="noreferrer">
@@ -439,7 +440,7 @@
             </div>
             <div class="chip">
               <strong data-i18n="publicExampleLabel">Public Example</strong>
-              <span data-i18n-html="publicExampleText">Full vocal and full mix demos from the <code>Sirius no Shinzou</code> case</span>
+              <span data-i18n-html="publicExampleText">Vocal and full mix demos from <code>Sirius no Shinzou</code> and <code>I Really Want to Love Him</code></span>
             </div>
           </div>
         </div>
@@ -448,8 +449,8 @@
       <section class="section">
         <div class="quote">
           <p data-i18n="quoteText">
-            A character voice is not remembered because it is loud. It is remembered because it
-            carries a fragile world within it, and leaves that world behind when the song is over.
+            A character voice is not remembered because it is loud. It is remembered because it can
+            carry both the distance of a star and the nearness of an unfinished confession.
           </p>
           <div class="muted-line" data-i18n="quoteLine">Framework release for character singing voice conversion</div>
         </div>
@@ -459,22 +460,29 @@
         <div class="panel">
           <h2 data-i18n="listenHeading">Listen</h2>
           <div class="audio-card">
-            <h3 data-i18n="convertedVocalHeading">Converted Vocal</h3>
-            <p data-i18n="convertedVocalText">
+            <h3 data-i18n="siriusVocalHeading">Sirius no Shinzou: Converted Vocal</h3>
+            <p data-i18n="siriusVocalText">
               Full-length isolated vocal rendered with the kept release checkpoint and index.
             </p>
             <audio controls preload="none" src="assets/audio/sirius_mayuri_vocal.mp3"></audio>
           </div>
           <div class="audio-card">
-            <h3 data-i18n="fullMixHeading">Aligned Full Mix</h3>
-            <p data-i18n="fullMixText">
+            <h3 data-i18n="siriusMixHeading">Sirius no Shinzou: Aligned Full Mix</h3>
+            <p data-i18n="siriusMixText">
               Reference mix pairing the converted vocal with the aligned instrumental.
             </p>
             <audio controls preload="none" src="assets/audio/sirius_mayuri_full.mp3"></audio>
           </div>
           <div class="audio-card">
-            <h3 data-i18n="wohenHeading">Final Mix: I Really Want to Love Him</h3>
-            <p data-i18n="wohenText">
+            <h3 data-i18n="wohenVocalHeading">I Really Want to Love Him: Converted Vocal</h3>
+            <p data-i18n="wohenVocalText">
+              Final edited vocal, keeping the gentler take and removing the section where the guide vocal becomes unstable.
+            </p>
+            <audio controls preload="none" src="assets/audio/wohenxiangaita_mayuri_vocal.mp3"></audio>
+          </div>
+          <div class="audio-card">
+            <h3 data-i18n="wohenMixHeading">I Really Want to Love Him: Final Mix</h3>
+            <p data-i18n="wohenMixText">
               Final edited mix with the unstable bridge section removed and the Mayuri vocal brought forward.
             </p>
             <audio controls preload="none" src="assets/audio/wohenxiangaita_mayuri_final_mix.mp3"></audio>
@@ -543,9 +551,10 @@
           <h2 data-i18n="intentHeading">Release Intent</h2>
           <p data-i18n-html="intentText">
             This repository is designed as a practical training and evaluation scaffold for
-            character singing voice conversion. The <code>シリウスの心臓</code> example demonstrates one
-            complete path through the framework, while the structure remains open for other songs,
-            other guide vocals, and further model iterations.
+            character singing voice conversion. <code>シリウスの心臓</code> and <code>我很想爱他</code>
+            show two different moods through the same model: one clear and distant, one warmer and
+            more fragile. The structure remains open for other songs, other guide vocals, and
+            further model iterations.
           </p>
         </div>
       </section>
@@ -565,27 +574,30 @@
           heroLead:
             "Mayuri-Amadeus-Sing is a character-focused singing voice conversion framework built on <code>RVC + Applio</code>, shaped around the idea that a remembered voice is more than timbre alone. It is timing, air, distance, and the emotion that remains after the note has faded.",
           heroNote:
-            "This release preserves the workflow, the demo model, and one complete public example based on <code>シリウスの心臓</code>. The aim is not to freeze a single cover, but to offer a reproducible path for training, evaluating, and refining character singing systems.",
+            "This release preserves the workflow, the demo model, and two public examples: <code>シリウスの心臓</code> and <code>我很想爱他</code>. One looks toward distant starlight; the other stays close to the ache of wanting to love someone. Together they offer a reproducible path for training, evaluating, and refining character singing systems.",
           datasetLabel: "Dataset",
           datasetValue: "SteinsGateSg · mayuri-voice-dataset",
           demoModelLabel: "Demo Model",
           backendLabel: "Backend",
           backendText: "<code>Applio 3.5.1</code> with the <code>RVC</code> family workflow",
           publicExampleLabel: "Public Example",
-          publicExampleText: "Full vocal and full mix demos from the <code>Sirius no Shinzou</code> case",
+          publicExampleText: "Vocal and full mix demos from <code>Sirius no Shinzou</code> and <code>I Really Want to Love Him</code>",
           githubEntry: "GitHub Repository",
           hfEntry: "Mayuri Voice Dataset",
           quoteText:
-            "A character voice is not remembered because it is loud. It is remembered because it carries a fragile world within it, and leaves that world behind when the song is over.",
+            "A character voice is not remembered because it is loud. It is remembered because it can carry both the distance of a star and the nearness of an unfinished confession.",
           quoteLine: "Framework release for character singing voice conversion",
           listenHeading: "Listen",
-          convertedVocalHeading: "Converted Vocal",
-          convertedVocalText:
+          siriusVocalHeading: "Sirius no Shinzou: Converted Vocal",
+          siriusVocalText:
             "Full-length isolated vocal rendered with the kept release checkpoint and index.",
-          fullMixHeading: "Aligned Full Mix",
-          fullMixText: "Reference mix pairing the converted vocal with the aligned instrumental.",
-          wohenHeading: "Final Mix: I Really Want to Love Him",
-          wohenText:
+          siriusMixHeading: "Sirius no Shinzou: Aligned Full Mix",
+          siriusMixText: "Reference mix pairing the converted vocal with the aligned instrumental.",
+          wohenVocalHeading: "I Really Want to Love Him: Converted Vocal",
+          wohenVocalText:
+            "Final edited vocal, keeping the gentler take and removing the section where the guide vocal becomes unstable.",
+          wohenMixHeading: "I Really Want to Love Him: Final Mix",
+          wohenMixText:
             "Final edited mix with the unstable bridge section removed and the Mayuri vocal brought forward.",
           startHeading: "Start",
           startNoteOne:
@@ -609,7 +621,7 @@
           layoutFour: "<code>data/source/</code>: optional local dataset links only",
           intentHeading: "Release Intent",
           intentText:
-            "This repository is designed as a practical training and evaluation scaffold for character singing voice conversion. The <code>シリウスの心臓</code> example demonstrates one complete path through the framework, while the structure remains open for other songs, other guide vocals, and further model iterations.",
+            "This repository is designed as a practical training and evaluation scaffold for character singing voice conversion. <code>シリウスの心臓</code> and <code>我很想爱他</code> show two different moods through the same model: one clear and distant, one warmer and more fragile. The structure remains open for other songs, other guide vocals, and further model iterations.",
           footerText:
             "Mayuri-Amadeus-Sing keeps the framework public and lightweight while leaving the dataset, model, and demo path concrete enough to reproduce."
         },
@@ -620,26 +632,29 @@
           heroLead:
             "Mayuri-Amadeus-Sing は、<code>RVC + Applio</code> を基盤にしたキャラクター特化の歌声変換フレームワークです。記憶に残る声は音色だけでは成立しません。タイミング、息遣い、距離感、そして音が消えたあとに残る感情まで含めて、声になります。",
           heroNote:
-            "本リリースには、ワークフロー、デモモデル、そして <code>シリウスの心臓</code> を用いた完全な公開例が含まれます。ひとつのカバーを固定化することではなく、キャラクター歌声システムを学習・評価・改善するための再現可能な道筋を残すことが目的です。",
+            "本リリースには、ワークフロー、デモモデル、そして <code>シリウスの心臓</code> と <code>我很想爱他</code> の二つの公開例が含まれます。ひとつは遠い星明かりへ向かい、もうひとつは誰かを愛したい痛みにそっと寄り添います。二つの曲を通して、キャラクター歌声システムを学習・評価・改善するための再現可能な道筋を残します。",
           datasetLabel: "データセット",
           datasetValue: "SteinsGateSg ・ mayuri-voice-dataset",
           demoModelLabel: "デモモデル",
           backendLabel: "バックエンド",
           backendText: "<code>Applio 3.5.1</code> を用いた <code>RVC</code> 系ワークフロー",
           publicExampleLabel: "公開例",
-          publicExampleText: "<code>シリウスの心臓</code> 事例のフルボーカルとフルミックスのデモ",
+          publicExampleText: "<code>シリウスの心臓</code> と <code>我很想爱他</code> のボーカルおよびフルミックスデモ",
           githubEntry: "GitHub リポジトリ",
           hfEntry: "Mayuri 音声データセット",
           quoteText:
-            "キャラクターの声が記憶に残るのは、ただ大きく響くからではない。その声の内側に壊れやすい世界があり、歌い終えたあとにその余韻だけを残していくからだ。",
+            "キャラクターの声が記憶に残るのは、ただ大きく響くからではない。遠い星の距離も、言い切れない告白の近さも、同じ声の中に置けるからだ。",
           quoteLine: "キャラクター歌声変換のためのフレームワークリリース",
           listenHeading: "試聴",
-          convertedVocalHeading: "変換ボーカル",
-          convertedVocalText: "保持したリリース用チェックポイントと index で生成したフル尺の分離ボーカルです。",
-          fullMixHeading: "整列済みフルミックス",
-          fullMixText: "変換ボーカルと位置合わせ済み伴奏を組み合わせた参照ミックスです。",
-          wohenHeading: "最終ミックス: 我很想爱他",
-          wohenText:
+          siriusVocalHeading: "シリウスの心臓: 変換ボーカル",
+          siriusVocalText: "保持したリリース用チェックポイントと index で生成したフル尺の分離ボーカルです。",
+          siriusMixHeading: "シリウスの心臓: 整列済みフルミックス",
+          siriusMixText: "変換ボーカルと位置合わせ済み伴奏を組み合わせた参照ミックスです。",
+          wohenVocalHeading: "我很想爱他: 変換ボーカル",
+          wohenVocalText:
+            "より穏やかなテイクを採用し、ガイドボーカルが不安定になる区間を取り除いた最終編集ボーカルです。",
+          wohenMixHeading: "我很想爱他: 最終ミックス",
+          wohenMixText:
             "不安定なブリッジ部分をカットし、Mayuri ボーカルを前に出した最終編集版です。",
           startHeading: "セットアップ",
           startNoteOne:
@@ -663,7 +678,7 @@
           layoutFour: "<code>data/source/</code>: 任意のローカルデータセットリンクのみ",
           intentHeading: "リリースの意図",
           intentText:
-            "このリポジトリは、キャラクター歌声変換の学習と評価のための実践的な足場として設計されています。<code>シリウスの心臓</code> の例はフレームワークを通るひとつの完全な経路を示しつつ、構造自体は他の楽曲、他のガイドボーカル、さらなるモデル反復にも開かれています。",
+            "このリポジトリは、キャラクター歌声変換の学習と評価のための実践的な足場として設計されています。<code>シリウスの心臓</code> と <code>我很想爱他</code> は、同じモデルが持つ二つの表情を示します。ひとつは澄んだ遠さ、もうひとつは近くて壊れやすい温度です。構造自体は他の楽曲、他のガイドボーカル、さらなるモデル反復にも開かれています。",
           footerText:
             "Mayuri-Amadeus-Sing は、フレームワークを公開かつ軽量に保ちながら、データセット、モデル、デモ経路を再現可能なだけの具体性で残します。"
         },
@@ -674,26 +689,28 @@
           heroLead:
             "Mayuri-Amadeus-Sing 是一个面向角色歌声转换的框架，基于 <code>RVC + Applio</code> 构建。真正让人记住的声音，不只是音色本身，还包括时值、气息、距离感，以及音符消失之后仍然残留的情绪。",
           heroNote:
-            "这一版发布保留了完整工作流、演示模型，以及一个基于 <code>シリウスの心臓</code> 的公开完整示例。它的目的不是固化某一首翻唱，而是提供一条可复现的路径，用于训练、评估和迭代角色歌声系统。",
+            "这一版发布保留了完整工作流、演示模型，以及 <code>シリウスの心臓</code> 和 <code>我很想爱他</code> 两个公开示例。一首望向遥远的星光，一首贴近想去爱一个人的隐痛。它们一起提供一条可复现的路径，用于训练、评估和迭代角色歌声系统。",
           datasetLabel: "数据集",
           datasetValue: "SteinsGateSg · mayuri-voice-dataset",
           demoModelLabel: "演示模型",
           backendLabel: "后端",
           backendText: "基于 <code>Applio 3.5.1</code> 的 <code>RVC</code> 系工作流",
           publicExampleLabel: "公开示例",
-          publicExampleText: "<code>シリウスの心臓</code> 案例的完整人声与完整混音试听",
+          publicExampleText: "<code>シリウスの心臓</code> 与 <code>我很想爱他</code> 的人声和完整混音试听",
           githubEntry: "GitHub 仓库",
           hfEntry: "真由理语音数据集",
           quoteText:
-            "一个角色的声音之所以会被记住，并不是因为它足够响亮，而是因为它内部藏着一个脆弱的世界，并在歌声结束之后把那个世界的余温留了下来。",
+            "一个角色的声音之所以会被记住，并不是因为它足够响亮，而是因为它既能放下星光的距离，也能承住一句未说完的告白。",
           quoteLine: "面向角色歌声转换的框架发布版",
           listenHeading: "试听",
-          convertedVocalHeading: "转换人声",
-          convertedVocalText: "基于保留的发布检查点与 index 渲染出的完整时长分离人声。",
-          fullMixHeading: "对齐完整版混音",
-          fullMixText: "将转换后人声与已对齐伴奏组合得到的参考混音版本。",
-          wohenHeading: "最终混音：《我很想爱他》",
-          wohenText: "已切除不稳定桥段，并将真由理人声相对伴奏前置的最终编辑版。",
+          siriusVocalHeading: "《シリウスの心臓》：转换人声",
+          siriusVocalText: "基于保留的发布检查点与 index 渲染出的完整时长分离人声。",
+          siriusMixHeading: "《シリウスの心臓》：对齐完整版混音",
+          siriusMixText: "将转换后人声与已对齐伴奏组合得到的参考混音版本。",
+          wohenVocalHeading: "《我很想爱他》：转换人声",
+          wohenVocalText: "保留更温和的一版人声，并切除了 guide vocal 不稳定段落后的最终编辑版。",
+          wohenMixHeading: "《我很想爱他》：最终混音",
+          wohenMixText: "已切除不稳定桥段，并将真由理人声相对伴奏前置的最终编辑版。",
           startHeading: "开始使用",
           startNoteOne:
             "首次启动 UI 或首次使用 CLI 推理时，会自动下载 Applio 运行所需的前置模型，例如 <code>rmvpe.pt</code> 与 <code>contentvec</code>。",
@@ -716,7 +733,7 @@
           layoutFour: "<code>data/source/</code>: 仅用于可选的本地数据集链接",
           intentHeading: "发布目的",
           intentText:
-            "这个仓库被设计为一个面向角色歌声转换的实用训练与评估骨架。<code>シリウスの心臓</code> 示例展示了穿过这套框架的一条完整路径，而整体结构仍然对其他歌曲、其他 guide vocal 以及后续模型迭代保持开放。",
+            "这个仓库被设计为一个面向角色歌声转换的实用训练与评估骨架。<code>シリウスの心臓</code> 和 <code>我很想爱他</code> 展示了同一个模型的两种情绪：一种清澈而遥远，一种更近、更柔软，也更容易破碎。整体结构仍然对其他歌曲、其他 guide vocal 以及后续模型迭代保持开放。",
           footerText:
             "Mayuri-Amadeus-Sing 让框架保持公开和轻量，同时也保留了足够具体的数据集、模型与演示路径，以便复现。"
         }
